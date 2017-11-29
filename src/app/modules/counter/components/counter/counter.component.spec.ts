@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CounterComponent } from './counter.component';
 import { NgRedux } from '@angular-redux/store';
-import { rootReducer } from '../store';
-import { INCREMENT, DECREMENT } from './../actions';
+import { INCREMENT, DECREMENT } from '../../actions';
+import { counterReducer } from '../../store';
 
 
 describe('CounterComponent', () => {
@@ -31,13 +31,13 @@ describe('CounterComponent', () => {
 describe('reducers', () => {
   it('should handle INCREMENT action', () => {
     let state;
-    state = rootReducer({ counter: 0 }, { type: INCREMENT });
+    state = counterReducer({ counter: 0 }, { type: 'INCREMENT' });
     expect(state).toEqual({ counter: 1 });
   });
 
   it('should handle DECREMENT action', () => {
     let state;
-    state = rootReducer({ counter: 0 }, { type: DECREMENT });
+    state = counterReducer({ counter: 0 }, { type: 'DECREMENT' });
     expect(state).toEqual({ counter: -1 });
   });
 });

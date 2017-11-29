@@ -1,0 +1,14 @@
+<h1>POSTS</h1>
+<ul class="list-group">
+  <li class="list-group-item clearfix" [class.active]="p.isSelected" (click)="selectPost(p)" *ngFor="let p of posts | async">
+    <h4 class="list-group-item-heading">
+      {{ p.title }}
+      <span class="pull-right button-group">
+        <button type="button" class="btn btn-danger" (click)="deletePost(p)">
+          <span class="glyphicon glyphicon-remove"></span> Delete</button>
+      </span>
+    </h4>
+    <p class="list-group-item-text" *ngIf="p.isSelected">{{ p.body }}</p>
+
+  </li>
+</ul>
